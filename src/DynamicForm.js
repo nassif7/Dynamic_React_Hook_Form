@@ -1,5 +1,8 @@
 import React from "react";
-import { Select, MenuItem } from "@material-ui/core";
+import { Divider, Button } from "@material-ui/core";
+import FieldsSelect from "./FieldsSelect";
+import Form from "./Form";
+import Field from "./Field";
 
 const selectOptions = [
   { name: "name", value: "" },
@@ -11,19 +14,28 @@ const selectOptions = [
 const DynamicForm = () => {
   const [fields, setFields] = React.useState([]);
   return (
-    <Select
-      labelId="demo-mutiple"
-      id="demo-mutiple"
-      multiple
-      value={fields}
-      onChange={(value) => setFields(value)}
-    >
-      {selectOptions.map((field) => (
-        <MenuItem key={field.name} value={field.name}>
-          {field.name}
-        </MenuItem>
-      ))}
-    </Select>
+    <>
+      <FieldsSelect
+        selectOptions={selectOptions}
+        onChange={(v) => setFields(v)}
+        value={fields}
+      />
+      <Divider style={{ marginTop: "1rem", marginBottom: "1rem" }} />
+      <Form>
+        {fields.map((field) => (
+          <Field name={field} defaultValue={field} key={field} />
+        ))}
+        <Button
+          style={{ marginTop: "2rem" }}
+          type="submit"
+          variant="outlined"
+          fullWidth
+          color="primary"
+        >
+          Submit
+        </Button>
+      </Form>
+    </>
   );
 };
 
