@@ -1,10 +1,10 @@
 import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller, useFormContext, useForm } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 const Field = ({ name, defaultValue }) => {
   const { control } = useFormContext();
-  console.log(name, defaultValue);
+
   return (
     <Controller
       name={name}
