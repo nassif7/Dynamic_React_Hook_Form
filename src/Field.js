@@ -19,6 +19,7 @@ const Field = ({ name, defaultValue }) => {
         />
       )}
       defaultValue={defaultValue}
+      shouldUnregister={true}
     />
   );
 };
