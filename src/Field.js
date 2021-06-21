@@ -1,5 +1,5 @@
 import React from "react";
-import { Controller, useFormContext, useForm } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { TextField } from "@material-ui/core";
 
 const Field = ({ name, defaultValue }) => {
@@ -15,7 +15,7 @@ const Field = ({ name, defaultValue }) => {
           value={value}
           onChange={(e) => onChange(e.target.value)}
           fullWidth
-          label=""
+          label={name}
         />
       )}
       defaultValue={defaultValue}
